@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <p class="h4">Trending</p>
+        </div>
+    </div>
+    <div class="row">
+    <div class="col-sm-3">
+        trending 1
+    </div>
+    <div class="col-sm-3">
+        trending 1
+    </div>
+    <div class="col-sm-3">
+        trending 1
+    </div>
+    <div class="col-sm-3">
+        trending 1
+    </div>
+    </div>
+    <div class="row mt-4">
+            <div class="col">
+                <p class="h5">Popular posts</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                Left col (wide)
+            </div>
+
+            <div class="col-4">
+                <p class="h5">Up and comming Subreddits</p>
+    
+    
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                       <% @communities.each do |community| %>
+                           <li class="list-group-item"><%= link_to community.name, community_path(community) %></li>
+                       <% end %>
+                    </ul>
+                </div>
+
+                <%= link_to "View all", communities_path, class: "btn btn-primary mt-3" %>
+            </div>
+        </div>
+        
+        
+    
+</div>
