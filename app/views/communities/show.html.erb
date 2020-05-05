@@ -1,9 +1,14 @@
+<% if @is_subscribed %>
 <%= link_to "Create New Post", new_community_post_path(@community), class: "btn btn-primary float-right" %>
+<% else %>
+<%= render partial: "communities/subscribe", locals: {community_id: @community.id} %>
+<% end %>
 <h3 class="pb-3"><%= @community.name %></h3>
 
 <%= render partial: "posts/list", locals: { posts: @posts } %>
 
 <%= pluralize @subscriber_count, "member" %>
+<%= @community.summary %>
 
 <small>
     <%= simple_format @community.rules %>
