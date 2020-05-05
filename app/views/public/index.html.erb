@@ -1,4 +1,5 @@
-<div class="container">
+
+    <% unless account_signed_in? %>
     <div class="row">
         <div class="col">
             <p class="h4">Trending</p>
@@ -18,19 +19,15 @@
         trending 1
     </div>
     </div>
-    <div class="row mt-4">
+    <% end %>
+    <div class="row">
             <div class="col">
                 <p class="h5">Popular posts</p>
             </div>
         </div>
         <div class="row">
             <div class="col-8">
-                <% @posts.each do |post| %>
-                <div class="card pd-3">
-                    <h4><%= link_to post.title, community_post_path(post.community, post) %></h4>
-                    <p><%= truncate post.body, lenght: 200 %></p>
-                </div>
-                <% end %>
+                <%= render partial: "posts/list", locals: { posts: @posts } %>
             </div>
 
             <div class="col-4">
@@ -49,6 +46,3 @@
             </div>
         </div>
         
-        
-    
-</div>

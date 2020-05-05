@@ -1,12 +1,9 @@
 <%= link_to "Create New Post", new_community_post_path(@community), class: "btn btn-primary float-right" %>
-<%= @community.name %>
+<h3 class="pb-3"><%= @community.name %></h3>
 
-<% @posts.each do |post| %>
-    <h4><%= link_to post.title, community_post_path(@community, post) %></h4>
-    <p><%= truncate post.body, lenght: 200 %></p>
-<% end %>
+<%= render partial: "posts/list", locals: { posts: @posts } %>
 
-
+<%= pluralize @subscriber_count, "member" %>
 
 <small>
     <%= simple_format @community.rules %>
