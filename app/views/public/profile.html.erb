@@ -6,6 +6,7 @@
         <p class="h4"><%= @profile.full_name %></p>
         <p> <%= @profile.username %></p>
 
+        <p>Karma: <%= @profile.karma %><span class="fa fa-star text-warning"></span></p>
         <p>Create day: <%= @profile.created_at.strftime("%d/%m/%Y") %></p>
     </div>
 </div>

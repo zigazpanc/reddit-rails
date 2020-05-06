@@ -1,3 +1,13 @@
+<div class="row">
+    <div class="col-1 text-center">
+        <div id="vote-actions-<%= @post.id %>" class="vote" data-id="<%= @post.id %>">
+            <div class="fa fa-arrow-up upvote <%= is_upvoted @post %>" ></div>
+            <span class="font-weight-bold score"><%= @post.score %></span>
+            <div class="fa fa-arrow-down downvote <%= is_downvoted @post %>"></div>
+        </div>
+    </div>
+    <div class="col-11">
+
 <h2><%= @post.title %></h2>
 
 <%= simple_format @post.body %>
@@ -13,3 +23,4 @@
     <%= f.text_area :message, placeholder: "Your comment...", class: "form-control" %>
     <%= f.submit "Submit comment", class: "btn btn-success mt-3" %>
 <% end %>
+    </div>

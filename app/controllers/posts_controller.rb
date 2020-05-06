@@ -35,7 +35,7 @@ class PostsController < ApplicationController
     end
 
     def auth_subscriber
-        unless Subscription.where(community_id: params[:community.id], account_id: current_account.id).any? 
+        unless Subscription.where(community_id: params[:community_id], account_id: current_account.id).any? 
             redirect_to root_path
         end
     end
