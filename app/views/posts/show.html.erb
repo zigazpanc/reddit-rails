@@ -11,7 +11,9 @@
 <h2><%= @post.title %></h2>
 
 <%= simple_format @post.body %>
-<div class="card-img-top"><%=image_tag(@post.image, style: "width:100%; height:auto")%></div>
+<div class="card-img-top"><% unless @post.image.blank? %>
+     <%= image_tag(@post.image, style: "width:100%; height:auto")%>
+      <% end %></div>
 
 
 <div id="post-comments">
