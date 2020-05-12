@@ -5,10 +5,12 @@ class PostsController < ApplicationController
 
     def index 
         @posts = post.all
+        
     end
 
     def show
         @comment = Comment.new
+        @community = Community.find(params[:community_id])
     end 
 
     def new
@@ -27,6 +29,16 @@ class PostsController < ApplicationController
             render :new
         end
     end
+
+    def edit
+    end
+
+    def destroy
+        @post.destroy
+        respond_to do |format|
+          format.html { redirect_to posts_url}
+        end
+      end
 
     private
 

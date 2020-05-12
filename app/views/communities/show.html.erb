@@ -1,16 +1,21 @@
-<% if @is_subscribed %>
-<%= link_to "Create New Post", new_community_post_path(@community), class: "btn btn-primary float-right" %>
-<% else %>
-<%= render partial: "communities/subscribe", locals: {community_id: @community.id} %>
-<% end %>
-<h3 class="pb-3"><%= @community.name %></h3>
+<div class="col-3 float-right"><% if @is_subscribed %>
+    <%= link_to "Create New Post", new_community_post_path(@community), class: "btn btn-primary float-right" %>
+    <% else %>
+    <%= render partial: "communities/subscribe", locals: {community_id: @community.id} %>
+    <% end %>
+    <h3 class="pb-3"><%= @community.name %></h3>
+    
+    Member count: <%= pluralize @subscriber_count, "" %><br>
+    Summary: <%= @community.summary %> <br>
+    
+    <small>rules</small>
+    <div class="border border-primary">
+            <%= simple_format @community.rules %>
+    </div>
+</div>
 
-<%= render partial: "posts/list", locals: { posts: @posts } %>
 
-<%= pluralize @subscriber_count, "member" %>
-<%= @community.summary %>
+<div class="col-9"><%= render partial: "posts/list", locals: { posts: @posts } %></div>
 
-<small>
-    <%= simple_format @community.rules %>
-</small>
+
 

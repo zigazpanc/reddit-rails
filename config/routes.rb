@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :pins
-  devise_for :accounts
+  devise_for :accounts, controllers: {omniauth_callbacks: 'omniauth'}
   get "u/:username" => "public#profile", as: :profile
   resources :communities do
     resources :posts

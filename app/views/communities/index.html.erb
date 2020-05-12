@@ -1,15 +1,18 @@
-<% if account_signed_in? %>
+<div class="mb-5">
+    <% if account_signed_in? %>
     <div class="float-right">
         <%= link_to "Create New Subreddit", new_community_path, class: "btn btn-outline-primary" %>
     </div>
 <% end %>
+</div>
+
 
 
 <% if @communities.size > 0 %>
-    <%= @communities.each do |community| %>
-    <div class="card">
+    <% @communities.each do |community| %>
+    <div class="card mb-3 p-3 ">
         <h3><%= link_to community.name, community %></h3>
-        <%= simple_format community.rules %>
+        <a class="">Rules:</a> <%= simple_format community.rules, class: "font-italic" %>
     </div>
     <% end %>
 <% else %>
