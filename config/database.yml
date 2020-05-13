@@ -28,5 +28,5 @@ production:
   username: sosewqhhmsirsw
   password: ef07f8b6b113a6d39f09332f163f29b8c7832b4f88c5de7911159c105c6e72e0
   port: 5432
-  url: postgres://sosewqhhmsirsw:ef07f8b6b113a6d39f09332f163f29b8c7832b4f88c5de7911159c105c6e72e0@ec2-54-247-169-129.eu-west-1.compute.amazonaws.com:5432/dfjsktsvgohdvr
+  uri: postgres://sosewqhhmsirsw:ef07f8b6b113a6d39f09332f163f29b8c7832b4f88c5de7911159c105c6e72e0@ec2-54-247-169-129.eu-west-1.compute.amazonaws.com:5432/dfjsktsvgohdvr
 
