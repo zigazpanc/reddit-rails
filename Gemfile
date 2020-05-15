@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.7'
 #devise za login
 gem 'devise'
  
+gem 'activeadmin'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'

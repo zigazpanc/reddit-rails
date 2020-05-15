@@ -24,7 +24,7 @@ test:
 
 production:
   <<: *default
-  database: dfjsktsvgohdvr
+  database: postgres://rrhrdsxrrgkavh:955aceae4c79cd19d9b40d4ae2037d249aab4cbc574c8c57ba5b22de62166583@ec2-52-207-25-133.compute-1.amazonaws.com:5432/d1449eot4aoiuc
   username: sosewqhhmsirsw
   password: ef07f8b6b113a6d39f09332f163f29b8c7832b4f88c5de7911159c105c6e72e0
   port: 5432

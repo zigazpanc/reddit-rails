@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   resources :pins
   devise_for :accounts, controllers: {omniauth_callbacks: 'omniauth'}
   get "u/:username" => "public#profile", as: :profile

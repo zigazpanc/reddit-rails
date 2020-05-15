@@ -10,9 +10,10 @@ class CommentsController < ApplicationController
                 @comments = Comment.where(post_id: @comment.post_id)
                 render "comments/create"
             else
-                # unable to save
+                redirect_to posts
             end
             }
+            reload!
         end
     end
 
