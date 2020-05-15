@@ -17,7 +17,7 @@ class Account < ApplicationRecord
       account.email = auth.info.email
       account.password = Devise.friendly_token[0, 20]
       account.first_name = auth.info.name   
-      account.last_name = auth.info.name
+      account.last_name = ""
       account.username = auth.info.name
     end
   end
@@ -36,7 +36,7 @@ class Account < ApplicationRecord
       account.email = provider_data.info.email
       account.password = Devise.friendly_token[0, 20]
       account.first_name = provider_data.info.name   # assuming the user model has a name
-      account.last_name = provider_data.info.name
+      account.last_name = ""
       account.username = provider_data.info.name
       
     end

@@ -12,12 +12,16 @@ class OmniauthController < ApplicationController
         end
       end
 
-    def google_oauth2
-        @account = Account.create_form_provider_data(request.env['omniauth.auth'])
-        if @account.persisted?
-            sign_in_and_redirect @account
+      def google_oauth2
+        # You need to implement the method below in your model (e.g. app/models/user.rb)
+        @account = Account.from_omniauth(request.env['omniauth.auth'])
+  
+        if @Account.persisted?
+          
+          sign_in_and_redirect @account
         else
-            redirect_to  new_account_registration_url
+          session['devise.google_data'] = request.env['omniauth.auth'].except(:extra) # Removing extra as it can overflow some session stores
+          redirect_to new_account_registration_url
         end
     end
 
