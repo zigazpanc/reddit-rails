@@ -17,8 +17,8 @@ ActiveAdmin.register_page "Dashboard" do
       panel "Seznam uporabnikov" do
         ul do
 
-          User.all.map do |user|
-            li link_to(user.email, admin_user_path(user));
+          Account.all.map do |account|
+            li link_to(account.email, admin_account_path(account));
           end
         end
       end
