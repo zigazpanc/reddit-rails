@@ -24,9 +24,9 @@ test:
 
 production:
   <<: *default
-  database: postgres://gcfpwcxsarpycq:6b73b94328fb4cfa58949c10a9b43fb3f707570d12052c4a71a6aebda958915e@ec2-34-230-149-169.compute-1.amazonaws.com:5432/d5at3ocf7ds7fr
-  username: gcfpwcxsarpycq
-  password: 6b73b94328fb4cfa58949c10a9b43fb3f707570d12052c4a71a6aebda958915e
+  database: postgres://zlzvgvehbxlrzy:af643ca2897b06e5ed8d4882ca3f1157a8613fb5744773d817cc00ad537b1af7@ec2-54-175-117-212.compute-1.amazonaws.com:5432/d5futdd6q0kfuk
+  username: zlzvgvehbxlrzy
+  password: af643ca2897b06e5ed8d4882ca3f1157a8613fb5744773d817cc00ad537b1af7
   port: 5432
   uri: heroku pg:psql postgresql-symmetrical-58041 --app zupanc-onrails
 
