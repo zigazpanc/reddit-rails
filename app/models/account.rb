@@ -46,7 +46,7 @@ class Account < ApplicationRecord
 end
 
   def full_name
-    "#{first_name} #{last_name}"
+    "#{username}"
   end
 
   def upvoted_post_ids
