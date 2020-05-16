@@ -4,7 +4,7 @@ class PostsController < ApplicationController
     before_action :auth_subscriber, only: [:new]
 
     def index 
-        @posts = post.all
+        @posts = Post.all
         
     end
 
@@ -34,10 +34,11 @@ class PostsController < ApplicationController
     end
 
     def destroy
+        @post = Post.find(params[:id])
+        @post.community_id = Post.find(params[:community_id])
+
         @post.destroy
-        respond_to do |format|
-          format.html { redirect_to posts_url}
-        end
+        redirect_to root_path
       end
 
     private

@@ -15,7 +15,7 @@
      <%= image_tag(@post.image, style: "width:90%; height:auto")%>
       <% end %></div>
       <%= link_to "Back", community_path(@community) %> 
-
+      <%= button_to "Delete", community_post_path(@post.id), method: :delete, class: 'btn btn-danger' %>
 
 
 <div id="post-comments" class="mt-3">
