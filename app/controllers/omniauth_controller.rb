@@ -17,8 +17,7 @@ class OmniauthController < ApplicationController
         @account = Account.from_omniauth(request.env['omniauth.auth'])
   
         if @account.persisted?
-          
-          sign_in_and_redirect @account
+          sign_in_and_redirect @account, skip_jwt: true
         else
           session['devise.google_data'] = request.env['omniauth.auth'].except(:extra) # Removing extra as it can overflow some session stores
           redirect_to new_account_registration_url
