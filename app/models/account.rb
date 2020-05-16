@@ -12,13 +12,6 @@ class Account < ApplicationRecord
   has_many :votes
 
 
-  def self.create_from_provider_data(provider_data)
-    where(provider: provider_data.provider, uid: provider_data.uid).first_or_create do | account |
-      account.email = provider_data.info.email
-      account.password = Devise.friendly_token[0, 20]
-    end
-  end
-
   def self.new_with_session(params, session)
     super.tap do |account|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
@@ -26,6 +19,31 @@ class Account < ApplicationRecord
       end
     end
   end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |account|
+      account.email = auth.info.email
+      account.password = Devise.friendly_token[0, 20]
+      account.first_name = auth.info.name   # assuming the user model has a name
+      # If you are using confirmable and the provider(s) you use validate emails, 
+      # uncomment the line below to skip the confirmation emails.
+      # user.skip_confirmation!
+    end
+  end
+
+  def self.from_omniauth(access_token)
+    data = access_token.info
+    account = Account.where(email: data['email']).first
+
+    # Uncomment the section below if you want users to be created if they don't exist
+    unless account
+        account = Account.create(first_name: data['name'],
+           email: data['email'],
+           password: Devise.friendly_token[0,20]
+        )
+    end
+    account
+end
 
   def full_name
     "#{first_name} #{last_name}"
