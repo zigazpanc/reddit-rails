@@ -16,7 +16,7 @@ class OmniauthController < ApplicationController
         # You need to implement the method below in your model (e.g. app/models/user.rb)
         @account = Account.from_omniauth(request.env['omniauth.auth'])
   
-        if @Account.persisted?
+        if @account.persisted?
           
           sign_in_and_redirect @account
         else
