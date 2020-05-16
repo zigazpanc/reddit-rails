@@ -15,8 +15,10 @@
      <%= image_tag(@post.image, style: "width:90%; height:auto")%>
       <% end %></div>
       <%= link_to "Back", community_path(@community) %> 
+      <% if account_signed_in? %>
       <% if current_account.id == @post.community_id %>
       <%= button_to "Delete", community_post_path(@post.id), method: :delete, class: 'btn btn-danger' %>
+    <% end %>
     <% end %>
 
 <div id="post-comments" class="mt-3">
@@ -30,6 +32,6 @@
 <%= form_for @comment, remote: true do |f| %>
     <%= f.hidden_field :post_id, value: @post.id %>
     <%= f.text_area :message, placeholder: "Your comment...", class: "form-control" %>
-    <%= f.submit "Submit comment", class: "btn btn-success mt-3 mb-3" %>
-<% end %>
+    <%= f.submit "Submit comment", class: "btn btn-success mt-3" %>
+<% end %> 
     </div>

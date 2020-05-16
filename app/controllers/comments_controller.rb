@@ -10,12 +10,18 @@ class CommentsController < ApplicationController
                 @comments = Comment.where(post_id: @comment.post_id)
                 render "comments/create"
             else
-                redirect_to posts
+                # unable to save
             end
             }
-            reload!
         end
     end
+
+    def destroy
+        @comment = Comment.find(params[:id])
+       
+        @comment.destroy
+        redirect_to root_path
+      end
 
 
     def comment_params

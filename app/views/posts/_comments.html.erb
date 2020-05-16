@@ -4,6 +4,7 @@
     Posted by <%= link_to comment.account.full_name, profile_path(comment.account.username) %>
     <%= time_ago_in_words comment.created_at %> ago:
     <h5><%= simple_format  comment.message %></h5>
+
 </div>
 <% end %>
 <% else %>
