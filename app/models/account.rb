@@ -27,7 +27,7 @@ end
 
 
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |account|
       account.email = provider_data.info.email
       account.password = Devise.friendly_token[0, 20]
       account.first_name = provider_data.info.name   # assuming the user model has a name
